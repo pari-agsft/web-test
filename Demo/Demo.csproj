@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE096736-C9B7-40D2-85F2-81639EADF6A4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="src\app\app.component.js" />
+    <Content Include="src\app\app.config.js" />
+    <Content Include="src\app\app.module.js" />
+    <Content Include="src\app\app.resolver.js" />
+    <Content Include="src\app\app.routes.js" />
+    <Content Include="src\app\app.service.js" />
+    <Content Include="src\app\charts\charts.component.js" />
+    <Content Include="src\app\charts\charts.module.js" />
+    <Content Include="src\app\charts\charts.template.html" />
+    <Content Include="src\app\charts\flot-chart-animator\flot-chart-animator.directive.js" />
+    <Content Include="src\app\components\d3\d3.module.js" />
+    <Content Include="src\app\components\dropzone\dropzone.directive.js" />
+    <Content Include="src\app\components\flot\flot.directive.js" />
+    <Content Include="src\app\components\flot\flot.module.js" />
+    <Content Include="src\app\components\mapael\mapael.directive.js" />
+    <Content Include="src\app\components\mapael\mapael.module.js" />
+    <Content Include="src\app\components\morris\morris.directive.js" />
+    <Content Include="src\app\components\morris\morris.module.js" />
+    <Content Include="src\app\components\nvd3\nvd3.directive.js" />
+    <Content Include="src\app\components\nvd3\nvd3.module.js" />
+    <Content Include="src\app\components\rickshaw\rickshaw.directive.js" />
+    <Content Include="src\app\components\rickshaw\rickshaw.module.js" />
+    <Content Include="src\app\components\skycon\scycon.directive.js" />
+    <Content Include="src\app\components\skycon\skycon.module.js" />
+    <Content Include="src\app\components\sparkline\sparkline.directive.js" />
+    <Content Include="src\app\components\sparkline\sparkline.module.js" />
+    <Content Include="src\app\components\tile\tile.directive.js" />
+    <Content Include="src\app\components\tile\tile.module.js" />
+    <Content Include="src\app\components\wizard\wizard.directive.js" />
+    <Content Include="src\app\components\wizard\wizard.module.js" />
+    <Content Include="src\app\dashboard\bootstrap-calendar\bootstrap-calendar.component.js" />
+    <Content Include="src\app\dashboard\dashboard.component.js" />
+    <Content Include="src\app\dashboard\dashboard.module.js" />
+    <Content Include="src\app\dashboard\dashboard.template.html" />
+    <Content Include="src\app\dashboard\geo-locations-widget\geo-locations-widget.directive.js" />
+    <Content Include="src\app\dashboard\market-stats-widget\market-stats-widget.component.js" />
+    <Content Include="src\app\environment.js" />
+    <Content Include="src\app\error\error.component.js" />
+    <Content Include="src\app\error\error.module.js" />
+    <Content Include="src\app\error\error.template.html" />
+    <Content Include="src\app\extra\calendar\calendar.component.js" />
+    <Content Include="src\app\extra\calendar\calendar.template.html" />
+    <Content Include="src\app\extra\extra.module.js" />
+    <Content Include="src\app\extra\gallery\gallery.component.js" />
+    <Content Include="src\app\extra\gallery\gallery.template.html" />
+    <Content Include="src\app\extra\invoice\invoice.component.js" />
+    <Content Include="src\app\extra\invoice\invoice.template.html" />
+    <Content Include="src\app\extra\search-results\search-results.component.js" />
+    <Content Include="src\app\extra\search-results\search-results.template.html" />
+    <Content Include="src\app\extra\time-line\time-line.component.js" />
+    <Content Include="src\app\extra\time-line\time-line.template.html" />
+    <Content Include="src\app\forms\elements\elements.component.js" />
+    <Content Include="src\app\forms\elements\elements.data.js" />
+    <Content Include="src\app\forms\elements\elements.template.html" />
+    <Content Include="src\app\forms\forms.module.js" />
+    <Content Include="src\app\forms\validation\validation.component.js" />
+    <Content Include="src\app\forms\validation\validation.template.html" />
+    <Content Include="src\app\forms\wizard\bootstrap-application-wizard\bootstrap-application-wizard.directive.js" />
+    <Content Include="src\app\forms\wizard\wizard.component.js" />
+    <Content Include="src\app\forms\wizard\wizard.template.html" />
+    <Content Include="src\app\grid\grid-demo\grid-demo.js" />
+    <Content Include="src\app\grid\grid.component.js" />
+    <Content Include="src\app\grid\grid.module.js" />
+    <Content Include="src\app\grid\grid.template.html" />
+    <Content Include="src\app\inbox\inbox.component.js" />
+    <Content Include="src\app\inbox\inbox.module.js" />
+    <Content Include="src\app\inbox\inbox.template.html" />
+    <Content Include="src\app\inbox\mail-detail\mail-detail.component.js" />
+    <Content Include="src\app\inbox\mail-detail\mail-detail.template.html" />
+    <Content Include="src\app\inbox\mail-form\mail-form.component.js" />
+    <Content Include="src\app\inbox\mail-form\mail-form.template.html" />
+    <Content Include="src\app\inbox\mail-list\mail-list.component.js" />
+    <Content Include="src\app\inbox\mail-list\mail-list.template.html" />
+    <Content Include="src\app\inbox\mail-list\pipes\folders-pipe.js" />
+    <Content Include="src\app\inbox\mail-list\pipes\search-pipe.js" />
+    <Content Include="src\app\index.js" />
+    <Content Include="src\app\layout\chat-sidebar\chat-message\chat-message.component.js" />
+    <Content Include="src\app\layout\chat-sidebar\chat-message\chat-message.template.html" />
+    <Content Include="src\app\layout\chat-sidebar\chat-sidebar.component.js" />
+    <Content Include="src\app\layout\chat-sidebar\chat-sidebar.template.html" />
+    <Content Include="src\app\layout\chat-sidebar\chat.service.js" />
+    <Content Include="src\app\layout\layout.component.js" />
+    <Content Include="src\app\layout\layout.module.js" />
+    <Content Include="src\app\layout\layout.routes.js" />
+    <Content Include="src\app\layout\layout.template.html" />
+    <Content Include="src\app\layout\navbar\navbar.component.js" />
+    <Content Include="src\app\layout\navbar\navbar.template.html" />
+    <Content Include="src\app\layout\notifications\notifications-load.directive.js" />
+    <Content Include="src\app\layout\notifications\notifications.component.js" />
+    <Content Include="src\app\layout\notifications\notifications.template.html" />
+    <Content Include="src\app\layout\pipes\search.pipe.js" />
+    <Content Include="src\app\layout\sidebar\sidebar.component.js" />
+    <Content Include="src\app\layout\sidebar\sidebar.template.html" />
+    <Content Include="src\app\layout\utils\directives\animate-number.directive.js" />
+    <Content Include="src\app\layout\utils\directives\check-all.directive.js" />
+    <Content Include="src\app\layout\utils\directives\progress-animate.directive.js" />
+    <Content Include="src\app\layout\utils\utils.module.js" />
+    <Content Include="src\app\layout\widget\widget.directive.js" />
+    <Content Include="src\app\layout\widget\widget.module.js" />
+    <Content Include="src\app\login\login.component.js" />
+    <Content Include="src\app\login\login.module.js" />
+    <Content Include="src\app\login\login.template.html" />
+    <Content Include="src\app\maps\google\maps-google.component.js" />
+    <Content Include="src\app\maps\google\maps-google.template.html" />
+    <Content Include="src\app\maps\maps.module.js" />
+    <Content Include="src\app\maps\vector\maps-vector.component.js" />
+    <Content Include="src\app\maps\vector\maps-vector.template.html" />
+    <Content Include="src\app\profile\profile.component.js" />
+    <Content Include="src\app\profile\profile.module.js" />
+    <Content Include="src\app\profile\profile.template.html" />
+    <Content Include="src\app\tables\basic\tables-basic.component.js" />
+    <Content Include="src\app\tables\basic\tables-basic.template.html" />
+    <Content Include="src\app\tables\dynamic\pipes\search-pipe.js" />
+    <Content Include="src\app\tables\dynamic\tables-dynamic.component.js" />
+    <Content Include="src\app\tables\dynamic\tables-dynamic.data.js" />
+    <Content Include="src\app\tables\dynamic\tables-dynamic.template.html" />
+    <Content Include="src\app\tables\tables.module.js" />
+    <Content Include="src\app\ui-elements\buttons\buttons.component.js" />
+    <Content Include="src\app\ui-elements\buttons\buttons.template.html" />
+    <Content Include="src\app\ui-elements\components\components.component.js" />
+    <Content Include="src\app\ui-elements\components\components.template.html" />
+    <Content Include="src\app\ui-elements\icons\icons.component.js" />
+    <Content Include="src\app\ui-elements\icons\icons.template.html" />
+    <Content Include="src\app\ui-elements\list-groups\list-groups.component.js" />
+    <Content Include="src\app\ui-elements\list-groups\list-groups.template.html" />
+    <Content Include="src\app\ui-elements\notifications\messenger\messenger.directive.js" />
+    <Content Include="src\app\ui-elements\notifications\notifications.component.js" />
+    <Content Include="src\app\ui-elements\notifications\notifications.template.html" />
+    <Content Include="src\app\ui-elements\tabs-accordion\tabs-accordion.component.js" />
+    <Content Include="src\app\ui-elements\tabs-accordion\tabs-accordion.template.html" />
+    <Content Include="src\app\ui-elements\ui-elements.module.js" />
+    <Content Include="src\app\widgets\changes-chart-widget\changes-chart-widget.component.js" />
+    <Content Include="src\app\widgets\changes-chart-widget\changes-chart-widget.template.html" />
+    <Content Include="src\app\widgets\flot-chart-widget\flot-chart-widget.component.js" />
+    <Content Include="src\app\widgets\flot-chart-widget\flot-chart-widget.template.html" />
+    <Content Include="src\app\widgets\nasdaq-sparkline-widget\nasdaq-sparkline-widget.component.js" />
+    <Content Include="src\app\widgets\realtime-traffic-widget\realtime-traffic-widget.component.js" />
+    <Content Include="src\app\widgets\realtime-traffic-widget\realtime-traffic-widget.template.html" />
+    <Content Include="src\app\widgets\widgets.component.js" />
+    <Content Include="src\app\widgets\widgets.module.js" />
+    <Content Include="src\app\widgets\widgets.template.html" />
+    <Content Include="src\app\widgets\years-map-widget\fake-world-data.service.js" />
+    <Content Include="src\app\widgets\years-map-widget\years-map-widget.component.js" />
+    <Content Include="src\app\widgets\years-map-widget\years-map-widget.template.html" />
+    <Content Include="src\assets\css\.gitkeep" />
+    <Content Include="src\assets\data.json" />
+    <Content Include="src\assets\demo\grid\autoload.php" />
+    <Content Include="src\assets\demo\grid\default.php" />
+    <Content Include="src\assets\demo\grid\news.php" />
+    <Content Include="src\assets\demo\grid\shares.php" />
+    <Content Include="src\assets\demo\notifications\notifications.php" />
+    <Content Include="src\assets\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="src\assets\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="src\assets\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="src\assets\fonts\font-awesome\fontawesome-webfont.woff2" />
+    <Content Include="src\assets\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="src\assets\fonts\glyphicons\glyphicons-halflings-regular.eot" />
+    <Content Include="src\assets\fonts\glyphicons\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\assets\fonts\glyphicons\glyphicons-halflings-regular.woff" />
+    <Content Include="src\assets\fonts\glyphicons\glyphicons-halflings-regular.woff2" />
+    <Content Include="src\assets\fonts\google\open-sans-bold-italic.woff" />
+    <Content Include="src\assets\fonts\google\open-sans-bold.woff" />
+    <Content Include="src\assets\fonts\google\open-sans-italic.woff" />
+    <Content Include="src\assets\fonts\google\open-sans-light-italic.woff" />
+    <Content Include="src\assets\fonts\google\open-sans-light.woff" />
+    <Content Include="src\assets\fonts\google\open-sans-semibold-italic.woff" />
+    <Content Include="src\assets\fonts\google\open-sans-semibold.woff" />
+    <Content Include="src\assets\fonts\google\open-sans.woff" />
+    <Content Include="src\assets\icon\manifest.json" />
+    <Content Include="src\assets\manifest.json" />
+    <Content Include="src\assets\mock-data\mock-data.json" />
+    <Content Include="package.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="typedoc.json" />
+    <Content Include="tsconfig.webpack.json" />
+    <Content Include="tslint.json" />
+    <Content Include="src\app\app.component.js.map" />
+    <Content Include="src\app\app.config.js.map" />
+    <Content Include="src\app\app.module.js.map" />
+    <Content Include="src\app\app.resolver.js.map" />
+    <Content Include="src\app\app.routes.js.map" />
+    <Content Include="src\app\app.service.js.map" />
+    <Content Include="src\app\charts\charts.component.js.map" />
+    <Content Include="src\app\charts\charts.module.js.map" />
+    <Content Include="src\app\charts\charts.style.scss" />
+    <Content Include="src\app\charts\flot-chart-animator\flot-chart-animator.directive.js.map" />
+    <Content Include="src\app\components\d3\d3.module.js.map" />
+    <Content Include="src\app\components\dropzone\dropzone.directive.js.map" />
+    <Content Include="src\app\components\flot\flot.directive.js.map" />
+    <Content Include="src\app\components\flot\flot.module.js.map" />
+    <Content Include="src\app\components\mapael\mapael.directive.js.map" />
+    <Content Include="src\app\components\mapael\mapael.module.js.map" />
+    <Content Include="src\app\components\morris\morris.directive.js.map" />
+    <Content Include="src\app\components\morris\morris.module.js.map" />
+    <Content Include="src\app\components\nvd3\nvd3.directive.js.map" />
+    <Content Include="src\app\components\nvd3\nvd3.module.js.map" />
+    <Content Include="src\app\components\rickshaw\rickshaw.directive.js.map" />
+    <Content Include="src\app\components\rickshaw\rickshaw.module.js.map" />
+    <Content Include="src\app\components\skycon\scycon.directive.js.map" />
+    <Content Include="src\app\components\skycon\skycon.module.js.map" />
+    <Content Include="src\app\components\sparkline\sparkline.directive.js.map" />
+    <Content Include="src\app\components\sparkline\sparkline.module.js.map" />
+    <Content Include="src\app\components\tile\tile.directive.js.map" />
+    <Content Include="src\app\components\tile\tile.module.js.map" />
+    <Content Include="src\app\components\wizard\wizard.directive.js.map" />
+    <Content Include="src\app\components\wizard\wizard.module.js.map" />
+    <Content Include="src\app\dashboard\bootstrap-calendar\bootstrap-calendar.component.js.map" />
+    <Content Include="src\app\dashboard\dashboard.component.js.map" />
+    <Content Include="src\app\dashboard\dashboard.module.js.map" />
+    <Content Include="src\app\dashboard\dashboard.style.scss" />
+    <Content Include="src\app\dashboard\geo-locations-widget\geo-locations-widget.directive.js.map" />
+    <Content Include="src\app\dashboard\market-stats-widget\market-stats-widget.component.js.map" />
+    <Content Include="src\app\environment.js.map" />
+    <Content Include="src\app\error\error.component.js.map" />
+    <Content Include="src\app\error\error.module.js.map" />
+    <Content Include="src\app\error\error.style.scss" />
+    <Content Include="src\app\extra\calendar\calendar.component.js.map" />
+    <Content Include="src\app\extra\calendar\calendar.style.scss" />
+    <Content Include="src\app\extra\extra.module.js.map" />
+    <Content Include="src\app\extra\gallery\gallery.component.js.map" />
+    <Content Include="src\app\extra\gallery\gallery.style.scss" />
+    <Content Include="src\app\extra\invoice\invoice.component.js.map" />
+    <Content Include="src\app\extra\invoice\invoice.style.scss" />
+    <Content Include="src\app\extra\search-results\search-results.component.js.map" />
+    <Content Include="src\app\extra\search-results\search-results.style.scss" />
+    <Content Include="src\app\extra\time-line\time-line.component.js.map" />
+    <Content Include="src\app\extra\time-line\time-line.style.scss" />
+    <Content Include="src\app\forms\elements\elements.component.js.map" />
+    <Content Include="src\app\forms\elements\elements.data.js.map" />
+    <Content Include="src\app\forms\elements\elements.style.scss" />
+    <Content Include="src\app\forms\forms.module.js.map" />
+    <Content Include="src\app\forms\validation\validation.component.js.map" />
+    <Content Include="src\app\forms\validation\validation.style.scss" />
+    <Content Include="src\app\forms\wizard\bootstrap-application-wizard\bootstrap-application-wizard.directive.js.map" />
+    <Content Include="src\app\forms\wizard\wizard.component.js.map" />
+    <Content Include="src\app\forms\wizard\wizard.style.scss" />
+    <Content Include="src\app\grid\grid-demo\grid-demo.js.map" />
+    <Content Include="src\app\grid\grid.component.js.map" />
+    <Content Include="src\app\grid\grid.module.js.map" />
+    <Content Include="src\app\grid\grid.style.scss" />
+    <Content Include="src\app\inbox\inbox.component.js.map" />
+    <Content Include="src\app\inbox\inbox.module.js.map" />
+    <Content Include="src\app\inbox\inbox.style.scss" />
+    <Content Include="src\app\inbox\mail-detail\mail-detail.component.js.map" />
+    <Content Include="src\app\inbox\mail-detail\mail-detail.style.scss" />
+    <Content Include="src\app\inbox\mail-form\mail-form.component.js.map" />
+    <Content Include="src\app\inbox\mail-list\mail-list.component.js.map" />
+    <Content Include="src\app\inbox\mail-list\mail-list.style.scss" />
+    <Content Include="src\app\inbox\mail-list\pipes\folders-pipe.js.map" />
+    <Content Include="src\app\inbox\mail-list\pipes\search-pipe.js.map" />
+    <Content Include="src\app\index.js.map" />
+    <Content Include="src\app\layout\chat-sidebar\chat-message\chat-message.component.js.map" />
+    <Content Include="src\app\layout\chat-sidebar\chat-sidebar.component.js.map" />
+    <Content Include="src\app\layout\chat-sidebar\chat.service.js.map" />
+    <Content Include="src\app\layout\layout.component.js.map" />
+    <Content Include="src\app\layout\layout.module.js.map" />
+    <Content Include="src\app\layout\layout.routes.js.map" />
+    <Content Include="src\app\layout\navbar\navbar.component.js.map" />
+    <Content Include="src\app\layout\notifications\notifications-load.directive.js.map" />
+    <Content Include="src\app\layout\notifications\notifications.component.js.map" />
+    <Content Include="src\app\layout\pipes\search.pipe.js.map" />
+    <Content Include="src\app\layout\sidebar\sidebar.component.js.map" />
+    <Content Include="src\app\layout\utils\directives\animate-number.directive.js.map" />
+    <Content Include="src\app\layout\utils\directives\check-all.directive.js.map" />
+    <Content Include="src\app\layout\utils\directives\progress-animate.directive.js.map" />
+    <Content Include="src\app\layout\utils\utils.module.js.map" />
+    <Content Include="src\app\layout\widget\widget.directive.js.map" />
+    <Content Include="src\app\layout\widget\widget.module.js.map" />
+    <Content Include="src\app\login\login.component.js.map" />
+    <Content Include="src\app\login\login.module.js.map" />
+    <Content Include="src\app\login\login.style.scss" />
+    <Content Include="src\app\maps\google\maps-google.component.js.map" />
+    <Content Include="src\app\maps\maps.module.js.map" />
+    <Content Include="src\app\maps\vector\maps-vector.component.js.map" />
+    <Content Include="src\app\profile\profile.component.js.map" />
+    <Content Include="src\app\profile\profile.module.js.map" />
+    <Content Include="src\app\profile\profile.style.scss" />
+    <Content Include="src\app\scss\application.scss" />
+    <Content Include="src\app\scss\_base.scss" />
+    <Content Include="src\app\scss\_bootstrap-override.scss" />
+    <Content Include="src\app\scss\_font.scss" />
+    <Content Include="src\app\scss\_general.scss" />
+    <Content Include="src\app\scss\_global-transitions.scss" />
+    <Content Include="src\app\scss\_libs-override.scss" />
+    <Content Include="src\app\scss\_mixins.scss" />
+    <Content Include="src\app\scss\_print.scss" />
+    <Content Include="src\app\scss\_select2-variables.scss" />
+    <Content Include="src\app\scss\_utils.scss" />
+    <Content Include="src\app\scss\_variables.scss" />
+    <Content Include="src\app\tables\basic\tables-basic.component.js.map" />
+    <Content Include="src\app\tables\dynamic\pipes\search-pipe.js.map" />
+    <Content Include="src\app\tables\dynamic\tables-dynamic.component.js.map" />
+    <Content Include="src\app\tables\dynamic\tables-dynamic.data.js.map" />
+    <Content Include="src\app\tables\dynamic\tables-dynamic.style.scss" />
+    <Content Include="src\app\tables\tables.module.js.map" />
+    <Content Include="src\app\ui-elements\buttons\buttons.component.js.map" />
+    <Content Include="src\app\ui-elements\buttons\buttons.style.scss" />
+    <Content Include="src\app\ui-elements\components\components.component.js.map" />
+    <Content Include="src\app\ui-elements\components\components.style.scss" />
+    <Content Include="src\app\ui-elements\icons\icons.component.js.map" />
+    <Content Include="src\app\ui-elements\icons\icons.style.scss" />
+    <Content Include="src\app\ui-elements\list-groups\list-groups.component.js.map" />
+    <Content Include="src\app\ui-elements\list-groups\list-groups.style.scss" />
+    <Content Include="src\app\ui-elements\notifications\messenger\messenger.directive.js.map" />
+    <Content Include="src\app\ui-elements\notifications\notifications.component.js.map" />
+    <Content Include="src\app\ui-elements\notifications\notifications.style.scss" />
+    <Content Include="src\app\ui-elements\tabs-accordion\tabs-accordion.component.js.map" />
+    <Content Include="src\app\ui-elements\ui-elements.module.js.map" />
+    <Content Include="src\app\widgets\changes-chart-widget\changes-chart-widget.component.js.map" />
+    <Content Include="src\app\widgets\flot-chart-widget\flot-chart-widget.component.js.map" />
+    <Content Include="src\app\widgets\nasdaq-sparkline-widget\nasdaq-sparkline-widget.component.js.map" />
+    <Content Include="src\app\widgets\realtime-traffic-widget\realtime-traffic-widget.component.js.map" />
+    <Content Include="src\app\widgets\widgets.component.js.map" />
+    <Content Include="src\app\widgets\widgets.module.js.map" />
+    <Content Include="src\app\widgets\widgets.style.scss" />
+    <Content Include="src\app\widgets\years-map-widget\fake-world-data.service.js.map" />
+    <Content Include="src\app\widgets\years-map-widget\years-map-widget.component.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\head-config.common.js" />
+    <Content Include="config\helpers.js" />
+    <Content Include="config\html-elements-plugin\index.js" />
+    <Content Include="config\modules\angular2-hmr-prod.js" />
+    <Content Include="config\webpack.common.js" />
+    <Content Include="config\webpack.dev.js" />
+    <Content Include="config\webpack.prod.js" />
+    <Content Include="src\assets\bootstrap-application-wizard\folder.png" />
+    <Content Include="src\assets\bootstrap-application-wizard\groups.png" />
+    <Content Include="src\assets\bootstrap-application-wizard\server_new.png" />
+    <Content Include="src\assets\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="src\assets\bootstrap-colorpicker\alpha.png" />
+    <Content Include="src\assets\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="src\assets\bootstrap-colorpicker\hue.png" />
+    <Content Include="src\assets\bootstrap-colorpicker\saturation.png" />
+    <Content Include="src\assets\demo\notifications\messages.html" />
+    <Content Include="src\assets\demo\notifications\notifications.html" />
+    <Content Include="src\assets\demo\notifications\progress.html" />
+    <Content Include="src\assets\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="src\assets\fonts\glyphicons\glyphicons-halflings-regular.svg" />
+    <Content Include="src\assets\humans.txt" />
+    <Content Include="src\assets\icon\android-icon-144x144.png" />
+    <Content Include="src\assets\icon\android-icon-192x192.png" />
+    <Content Include="src\assets\icon\android-icon-36x36.png" />
+    <Content Include="src\assets\icon\android-icon-48x48.png" />
+    <Content Include="src\assets\icon\android-icon-72x72.png" />
+    <Content Include="src\assets\icon\android-icon-96x96.png" />
+    <Content Include="src\assets\icon\apple-icon-114x114.png" />
+    <Content Include="src\assets\icon\apple-icon-120x120.png" />
+    <Content Include="src\assets\icon\apple-icon-144x144.png" />
+    <Content Include="src\assets\icon\apple-icon-152x152.png" />
+    <Content Include="src\assets\icon\apple-icon-180x180.png" />
+    <Content Include="src\assets\icon\apple-icon-57x57.png" />
+    <Content Include="src\assets\icon\apple-icon-60x60.png" />
+    <Content Include="src\assets\icon\apple-icon-72x72.png" />
+    <Content Include="src\assets\icon\apple-icon-76x76.png" />
+    <Content Include="src\assets\icon\apple-icon-precomposed.png" />
+    <Content Include="src\assets\icon\apple-icon.png" />
+    <Content Include="src\assets\icon\browserconfig.xml" />
+    <Content Include="src\assets\icon\favicon-16x16.png" />
+    <Content Include="src\assets\icon\favicon-32x32.png" />
+    <Content Include="src\assets\icon\favicon-96x96.png" />
+    <Content Include="src\assets\icon\favicon.ico" />
+    <Content Include="src\assets\icon\ms-icon-144x144.png" />
+    <Content Include="src\assets\icon\ms-icon-150x150.png" />
+    <Content Include="src\assets\icon\ms-icon-310x310.png" />
+    <Content Include="src\assets\icon\ms-icon-70x70.png" />
+    <Content Include="src\assets\icon\ms-icon-72x72.png" />
+    <Content Include="src\assets\img\a2.png" />
+    <Content Include="src\assets\img\angular-logo.png" />
+    <Content Include="src\assets\img\angularclass-avatar.png" />
+    <Content Include="src\assets\img\angularclass-logo.png" />
+    <Content Include="src\assets\img\avatar.png" />
+    <Content Include="src\assets\img\invoice-logo.png" />
+    <Content Include="src\assets\img\people\a1.jpg" />
+    <Content Include="src\assets\img\people\a2.jpg" />
+    <Content Include="src\assets\img\people\a3.jpg" />
+    <Content Include="src\assets\img\people\a4.jpg" />
+    <Content Include="src\assets\img\people\a5.jpg" />
+    <Content Include="src\assets\img\people\a6.jpg" />
+    <Content Include="src\assets\img\pictures\1.jpg" />
+    <Content Include="src\assets\img\pictures\10.jpg" />
+    <Content Include="src\assets\img\pictures\11.jpg" />
+    <Content Include="src\assets\img\pictures\13.jpg" />
+    <Content Include="src\assets\img\pictures\14.jpg" />
+    <Content Include="src\assets\img\pictures\15.jpg" />
+    <Content Include="src\assets\img\pictures\16.jpg" />
+    <Content Include="src\assets\img\pictures\17.jpg" />
+    <Content Include="src\assets\img\pictures\18.jpg" />
+    <Content Include="src\assets\img\pictures\19.jpg" />
+    <Content Include="src\assets\img\pictures\2.jpg" />
+    <Content Include="src\assets\img\pictures\20.jpg" />
+    <Content Include="src\assets\img\pictures\21.jpg" />
+    <Content Include="src\assets\img\pictures\3.jpg" />
+    <Content Include="src\assets\img\pictures\4.jpg" />
+    <Content Include="src\assets\img\pictures\5.jpg" />
+    <Content Include="src\assets\img\pictures\6.jpg" />
+    <Content Include="src\assets\img\pictures\8.jpg" />
+    <Content Include="src\assets\img\pictures\9.jpg" />
+    <Content Include="src\assets\img\search.png" />
+    <Content Include="src\assets\img\sing-preview.png" />
+    <Content Include="src\assets\img\sing-screenshot.png" />
+    <Content Include="src\assets\robots.txt" />
+    <Content Include="src\assets\select2\select2-spinner.gif" />
+    <Content Include="src\assets\select2\select2.png" />
+    <Content Include="src\assets\select2\select2x2.png" />
+    <Content Include="src\assets\service-worker.js" />
+    <Content Include="src\index.html" />
+    <Content Include="Web.config" />
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.config.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\app.resolver.ts" />
+    <TypeScriptCompile Include="src\app\app.routes.ts" />
+    <TypeScriptCompile Include="src\app\app.service.ts" />
+    <TypeScriptCompile Include="src\app\charts\charts.component.ts" />
+    <TypeScriptCompile Include="src\app\charts\charts.module.ts" />
+    <TypeScriptCompile Include="src\app\charts\flot-chart-animator\flot-chart-animator.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\d3\d3.module.ts" />
+    <TypeScriptCompile Include="src\app\components\dropzone\dropzone.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\flot\flot.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\flot\flot.module.ts" />
+    <TypeScriptCompile Include="src\app\components\mapael\mapael.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\mapael\mapael.module.ts" />
+    <TypeScriptCompile Include="src\app\components\morris\morris.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\morris\morris.module.ts" />
+    <TypeScriptCompile Include="src\app\components\nvd3\nvd3.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\nvd3\nvd3.module.ts" />
+    <TypeScriptCompile Include="src\app\components\rickshaw\rickshaw.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\rickshaw\rickshaw.module.ts" />
+    <TypeScriptCompile Include="src\app\components\skycon\scycon.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\skycon\skycon.module.ts" />
+    <TypeScriptCompile Include="src\app\components\sparkline\sparkline.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\sparkline\sparkline.module.ts" />
+    <TypeScriptCompile Include="src\app\components\tile\tile.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\tile\tile.module.ts" />
+    <TypeScriptCompile Include="src\app\components\wizard\wizard.directive.ts" />
+    <TypeScriptCompile Include="src\app\components\wizard\wizard.module.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\bootstrap-calendar\bootstrap-calendar.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\dashboard.module.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\geo-locations-widget\geo-locations-widget.directive.ts" />
+    <TypeScriptCompile Include="src\app\dashboard\market-stats-widget\market-stats-widget.component.ts" />
+    <TypeScriptCompile Include="src\app\environment.ts" />
+    <TypeScriptCompile Include="src\app\error\error.component.ts" />
+    <TypeScriptCompile Include="src\app\error\error.module.ts" />
+    <TypeScriptCompile Include="src\app\extra\calendar\calendar.component.ts" />
+    <TypeScriptCompile Include="src\app\extra\extra.module.ts" />
+    <TypeScriptCompile Include="src\app\extra\gallery\gallery.component.ts" />
+    <TypeScriptCompile Include="src\app\extra\invoice\invoice.component.ts" />
+    <TypeScriptCompile Include="src\app\extra\search-results\search-results.component.ts" />
+    <TypeScriptCompile Include="src\app\extra\time-line\time-line.component.ts" />
+    <TypeScriptCompile Include="src\app\forms\elements\elements.component.ts" />
+    <TypeScriptCompile Include="src\app\forms\elements\elements.data.ts" />
+    <TypeScriptCompile Include="src\app\forms\forms.module.ts" />
+    <TypeScriptCompile Include="src\app\forms\validation\validation.component.ts" />
+    <TypeScriptCompile Include="src\app\forms\wizard\bootstrap-application-wizard\bootstrap-application-wizard.directive.ts" />
+    <TypeScriptCompile Include="src\app\forms\wizard\wizard.component.ts" />
+    <TypeScriptCompile Include="src\app\grid\grid-demo\grid-demo.ts" />
+    <TypeScriptCompile Include="src\app\grid\grid.component.ts" />
+    <TypeScriptCompile Include="src\app\grid\grid.module.ts" />
+    <TypeScriptCompile Include="src\app\inbox\inbox.component.ts" />
+    <TypeScriptCompile Include="src\app\inbox\inbox.module.ts" />
+    <TypeScriptCompile Include="src\app\inbox\mail-detail\mail-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\inbox\mail-form\mail-form.component.ts" />
+    <TypeScriptCompile Include="src\app\inbox\mail-list\mail-list.component.ts" />
+    <TypeScriptCompile Include="src\app\inbox\mail-list\pipes\folders-pipe.ts" />
+    <TypeScriptCompile Include="src\app\inbox\mail-list\pipes\search-pipe.ts" />
+    <TypeScriptCompile Include="src\app\index.ts" />
+    <TypeScriptCompile Include="src\app\layout\chat-sidebar\chat-message\chat-message.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\chat-sidebar\chat-sidebar.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\chat-sidebar\chat.service.ts" />
+    <TypeScriptCompile Include="src\app\layout\layout.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\layout.module.ts" />
+    <TypeScriptCompile Include="src\app\layout\layout.routes.ts" />
+    <TypeScriptCompile Include="src\app\layout\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\notifications\notifications-load.directive.ts" />
+    <TypeScriptCompile Include="src\app\layout\notifications\notifications.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\pipes\search.pipe.ts" />
+    <TypeScriptCompile Include="src\app\layout\sidebar\sidebar.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\utils\directives\animate-number.directive.ts" />
+    <TypeScriptCompile Include="src\app\layout\utils\directives\check-all.directive.ts" />
+    <TypeScriptCompile Include="src\app\layout\utils\directives\progress-animate.directive.ts" />
+    <TypeScriptCompile Include="src\app\layout\utils\utils.module.ts" />
+    <TypeScriptCompile Include="src\app\layout\widget\widget.directive.ts" />
+    <TypeScriptCompile Include="src\app\layout\widget\widget.module.ts" />
+    <TypeScriptCompile Include="src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\login\login.module.ts" />
+    <TypeScriptCompile Include="src\app\maps\google\maps-google.component.ts" />
+    <TypeScriptCompile Include="src\app\maps\maps.module.ts" />
+    <TypeScriptCompile Include="src\app\maps\vector\maps-vector.component.ts" />
+    <TypeScriptCompile Include="src\app\profile\profile.component.ts" />
+    <TypeScriptCompile Include="src\app\profile\profile.module.ts" />
+    <TypeScriptCompile Include="src\app\tables\basic\tables-basic.component.ts" />
+    <TypeScriptCompile Include="src\app\tables\dynamic\pipes\search-pipe.ts" />
+    <TypeScriptCompile Include="src\app\tables\dynamic\tables-dynamic.component.ts" />
+    <TypeScriptCompile Include="src\app\tables\dynamic\tables-dynamic.data.ts" />
+    <TypeScriptCompile Include="src\app\tables\tables.module.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\buttons\buttons.component.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\components\components.component.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\icons\icons.component.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\list-groups\list-groups.component.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\notifications\messenger\messenger.directive.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\notifications\notifications.component.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\tabs-accordion\tabs-accordion.component.ts" />
+    <TypeScriptCompile Include="src\app\ui-elements\ui-elements.module.ts" />
+    <TypeScriptCompile Include="src\app\widgets\changes-chart-widget\changes-chart-widget.component.ts" />
+    <TypeScriptCompile Include="src\app\widgets\flot-chart-widget\flot-chart-widget.component.ts" />
+    <TypeScriptCompile Include="src\app\widgets\nasdaq-sparkline-widget\nasdaq-sparkline-widget.component.ts" />
+    <TypeScriptCompile Include="src\app\widgets\realtime-traffic-widget\realtime-traffic-widget.component.ts" />
+    <TypeScriptCompile Include="src\app\widgets\widgets.component.ts" />
+    <TypeScriptCompile Include="src\app\widgets\widgets.module.ts" />
+    <TypeScriptCompile Include="src\app\widgets\years-map-widget\fake-world-data.service.ts" />
+    <TypeScriptCompile Include="src\app\widgets\years-map-widget\years-map-widget.component.ts" />
+    <TypeScriptCompile Include="src\custom-typings.d.ts" />
+    <TypeScriptCompile Include="src\main.browser.aot.ts" />
+    <TypeScriptCompile Include="src\main.browser.ts" />
+    <TypeScriptCompile Include="src\polyfills.browser.ts" />
+    <TypeScriptCompile Include="src\vendor.browser.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57428</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3000/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
